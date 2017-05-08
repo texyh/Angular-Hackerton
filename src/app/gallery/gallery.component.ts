@@ -4,7 +4,7 @@ import {Component, Input} from '@angular/core';
   selector: 'gallery',
   template: `
   	<div class="row">
-  		<button class="btn btn-primary pull-btn-right" style="margin-left: 86%;margin-top: 4%;">Upload</button>
+  		<button class="btn btn-primary pull-btn-right" style="margin-left: 86%;margin-top: 4%;background-color:#008080 !important;">Upload</button>
   	</div>
 	<div class="modal fade" id="selectedImageModal" >
 	  <div class="modal-dialog" role="document">
