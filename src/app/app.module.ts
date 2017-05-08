@@ -2,9 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+
 
 import { AppComponent } from './layout/app.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { UploadComponent } from './upload/upload.component';
 import {ModalComponent} from './common/widgets/modalComponent/modal.component';
 import { ModalModule } from 'ngx-bootstrap';
 
@@ -12,15 +16,22 @@ import { ModalModule } from 'ngx-bootstrap';
   declarations: [
     AppComponent,
     GalleryComponent,
-    ModalComponent
+    ModalComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    RouterModule.forChild([
+            { path: '', redirectTo: 'gallery', pathMatch: 'full' },
+            { path: 'gallery', component: GalleryComponent },
+            { path: 'upload', component: UploadComponent },
+            { path: '**', redirectTo: 'gallery' }
+        ]),
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

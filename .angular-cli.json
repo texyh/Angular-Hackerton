@@ -20,11 +20,14 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss"
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "assets/css/_all-skins.min.css",
+        "assets/css/AdminLTE.min.css"        
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
-       "../node_modules/bootstrap/dist/js/bootstrap.min.js"
+       "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+       "assets/js/app.min.js" 
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
