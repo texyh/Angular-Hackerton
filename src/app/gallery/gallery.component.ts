@@ -12,11 +12,23 @@ export class GalleryComponent {
    @ViewChild(ModalComponent)
    private modal: ModalComponent;
 
-   @Input()
-	 datasource;
-
    selectedImage: any;
 	 title = 'image name';
+
+   datasource =  [
+	{"url":"https://goo.gl/T6eBLL"},
+	{"url":"https://goo.gl/GRjMGN"},
+	{"url":"https://goo.gl/T6eBLL"},
+	{"url":"https://goo.gl/GRjMGN"},
+	{"url":"https://goo.gl/ATjmQY"},
+	{"url":"https://goo.gl/GRjMGN"},
+	{"url":"https://goo.gl/T6eBLL"},
+	{"url":"https://goo.gl/ATjmQY"},
+	{"url":"https://goo.gl/T6eBLL"},
+	{"url":"https://goo.gl/GRjMGN"},
+	{"url":"https://goo.gl/ATjmQY"},
+	{"url":"https://goo.gl/T6eBLL"}
+      ];
 
    host: {'(window:keydown)': 'hotkeys($event)'}
 

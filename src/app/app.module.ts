@@ -24,7 +24,7 @@ import { ModalModule } from 'ngx-bootstrap';
     FormsModule,
     HttpModule,
     ModalModule.forRoot(),
-    RouterModule.forChild([
+    RouterModule.forRoot([
             { path: '', redirectTo: 'gallery', pathMatch: 'full' },
             { path: 'gallery', component: GalleryComponent },
             { path: 'upload', component: UploadComponent },

@@ -3,8 +3,8 @@
 
     <header class="main-header">
       <!-- Logo -->
-      <a href="index2.html" class="logo">
-        <span class="logo-lg"><b>Hack</b>Cli</span>
+      <a [routerLink]="['gallery']" class="logo">
+        <span class="logo-lg"><b>Hack</b>-Cli</span>
       </a>
       <!-- Header Navbar: style can be found in header.less -->
       <nav class="navbar navbar-static-top">
@@ -20,17 +20,17 @@
       <section class="sidebar">
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
-          <li class="header">Hack-cli</li>
+          <li class="header">Hack-Cli</li>
 
           <li>
-            <a href="#">
+            <a  [routerLinkActive]="['active']" [routerLink]="['gallery']">
               <i class="fa fa-th"></i> <span>Gallery</span>
             </a>
           </li>
-          <li>
-            <a href="#">
-              <i class="fa fa-th"></i> <span>Upload</span>
 
+          <li>
+            <a [routerLinkActive]="['active']" [routerLink]="['upload']">
+              <i class="fa fa-th"></i> <span>Upload</span>
             </a>
           </li>
         </ul>
@@ -39,31 +39,27 @@
       <!-- /.sidebar -->
     </aside>
 
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
-          Dashboard
-          <small>Control panel</small>
+         {{title}}
         </h1>
         <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li class="active">Dashboard</li>
+          <li><a [routerLink]="['gallery']"><i class="fa fa-dashboard"></i> Hack-Cli</a></li>
+          <li class="active">{{title}}</li>
         </ol>
+        <hr />
       </section>
 
       <!-- Main content -->
       <section class="content">
-        <app-gallery [datasource]=images></app-gallery>
+         <router-outlet></router-outlet>
       </section>
 
     </div>
 
-    <footer class="main-footer">
-      <div class="pull-right hidden-xs">
-        <b>Version</b> 2.3.8
-      </div>
-      <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+    <footer class="main-footer text-center">
+      
+      <strong>Copyright &copy; 2014-2016 Hack-Cli.</strong> All rights reserved.
     </footer>
   </div>
