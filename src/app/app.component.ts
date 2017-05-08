@@ -15,16 +15,16 @@ export class AppComponent {
    constructor(){
       this.images = [
 	{"url":"https://goo.gl/AClrVV"},
+	{"url":"https://goo.gl/GRjMGN"},
 	{"url":"https://goo.gl/AClrVV"},
+	{"url":"https://goo.gl/GRjMGN"},
+	{"url":"https://goo.gl/ATjmQY"},
+	{"url":"https://goo.gl/GRjMGN"},
 	{"url":"https://goo.gl/AClrVV"},
+	{"url":"https://goo.gl/ATjmQY"},
 	{"url":"https://goo.gl/AClrVV"},
-	{"url":"https://goo.gl/AClrVV"},
-	{"url":"https://goo.gl/AClrVV"},
-	{"url":"https://goo.gl/AClrVV"},
-	{"url":"https://goo.gl/AClrVV"},
-	{"url":"https://goo.gl/AClrVV"},
-	{"url":"https://goo.gl/AClrVV"},
-	{"url":"https://goo.gl/AClrVV"},
+	{"url":"https://goo.gl/GRjMGN"},
+	{"url":"https://goo.gl/ATjmQY"},
 	{"url":"https://goo.gl/AClrVV"}
       ];
    }
