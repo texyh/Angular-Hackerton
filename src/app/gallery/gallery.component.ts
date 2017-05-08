@@ -3,6 +3,7 @@ import {Component, Input} from '@angular/core';
 @Component({
   selector: 'gallery',
   template: `
+  <h1 class="page-header text-center" style="color:#008080;">Image Gallery</h1>
   	<div class="row">
   		<button class="btn btn-primary pull-btn-right" style="margin-left: 86%;margin-top: 4%;background-color:#008080 !important;">Upload</button>
   	</div>
@@ -10,6 +11,7 @@ import {Component, Input} from '@angular/core';
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-body">
+	      	   <div class="row"><span class="pull-right glyphicon glyphicon-trash" style="color:red;width:50px;"></span></div>
 		       <div class="selectedImage" *ngIf="selectedImage">
 		         <img src="{{selectedImage.url}}" style="width:500px;position:relative;">
 			    </div>
