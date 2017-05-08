@@ -8,21 +8,21 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app works!';
   images;
- 
+
    constructor(){
       this.images = [
-	{"url":"https://goo.gl/T6eBLL"},
-	{"url":"https://goo.gl/GRjMGN"},
-	{"url":"https://goo.gl/T6eBLL"},
-	{"url":"https://goo.gl/GRjMGN"},
-	{"url":"https://goo.gl/ATjmQY"},
-	{"url":"https://goo.gl/GRjMGN"},
-	{"url":"https://goo.gl/T6eBLL"},
-	{"url":"https://goo.gl/ATjmQY"},
-	{"url":"https://goo.gl/T6eBLL"},
-	{"url":"https://goo.gl/GRjMGN"},
-	{"url":"https://goo.gl/ATjmQY"},
-	{"url":"https://goo.gl/T6eBLL"}
+        	{"url":"https://goo.gl/T6eBLL"},
+        	{"url":"https://goo.gl/GRjMGN"},
+        	{"url":"https://goo.gl/T6eBLL"},
+        	{"url":"https://goo.gl/GRjMGN"},
+        	{"url":"https://goo.gl/ATjmQY"},
+        	{"url":"https://goo.gl/GRjMGN"},
+        	{"url":"https://goo.gl/T6eBLL"},
+        	{"url":"https://goo.gl/ATjmQY"},
+        	{"url":"https://goo.gl/T6eBLL"},
+        	{"url":"https://goo.gl/GRjMGN"},
+        	{"url":"https://goo.gl/ATjmQY"},
+        	{"url":"https://goo.gl/T6eBLL"}
       ];
    }
 }
