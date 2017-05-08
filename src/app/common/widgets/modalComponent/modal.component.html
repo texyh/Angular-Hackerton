@@ -1,0 +1,19 @@
+<div bsModal #modal="bs-modal" [config]="{ backdrop: true, ignoreBackdropClick: true, keyboard: true }" id="app-modal" class="modal fade" tabindex="-1" role="dialog" >
+    <div class="modal-dialog" role="document"
+         [ngClass]="{'modal-lg': size =='large', 'modal-xs': size == 'small', 'modal-md': size == 'medium'}">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button *ngIf="closable" (click)="close()" type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">{{title}}</h4>
+            </div>
+            <div class="modal-body">
+                <ng-content select="[xmodal-body]"></ng-content>
+            </div>
+            <div class="modal-footer">
+                <ng-content select="[xmodal-footer]"></ng-content>
+            </div>
+        </div>
+    </div>
+</div>
