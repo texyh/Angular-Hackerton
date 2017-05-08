@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
  
 @Component({
-  selector: 'gallery',
+  selector: 'app-gallery',
   template: `
   <h1 class="page-header text-center" style="color:#008080;">Image Gallery</h1>
   	<div class="row">
