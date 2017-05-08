@@ -36,4 +36,15 @@ export class GalleryComponent {
    }
   }
 
+	hotkeys(event){
+	   if(this.selectedImage){
+	      if (event.keyCode == 37){
+	         this.navigate(false);
+	      }else if(event.keyCode == 39){
+	         this.navigate(true);
+	      }
+	   }
+	}
+
+
 }
