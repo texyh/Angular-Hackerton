@@ -3,18 +3,22 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './layout/app.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import {ModalComponent} from './common/widgets/modalComponent/modal.component';
+import { ModalModule } from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GalleryComponent
+    GalleryComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

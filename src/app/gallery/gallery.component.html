@@ -1,3 +1,30 @@
-<p>
-  gallery works!
-</p>
+<h1 class="page-header text-center" style="color:#008080;">Image Gallery</h1>
+<div class="row">
+  <button class="btn btn-primary pull-btn-right" style="margin-left: 86%;margin-top: 2%;background-color:#008080 !important;">Upload</button>
+</div>
+<ul id="thumbnailsList">
+  <li *ngFor="let image of datasource">
+    <img src="{{image.url}}" class="tn" width="191" height="146" (click)="show(image)">
+  </li>
+</ul>
+
+<app-modal [title]="title" [size]='"large"' [closable]="true">
+  <div class="row" xmodal-body>
+    
+      <div class="row"><span class="pull-right glyphicon glyphicon-trash" style="color:red;width:50px;"></span></div>
+        <div class="selectedImage" *ngIf="selectedImage">
+          <img src="{{selectedImage.url}}" style="width:500px;position:relative;">
+        </div>
+      <div class="row" style="margin-top:2%;">
+        <div class="col-md-1"></div>
+          <div class="col-md-4 text-center" style="opacity:0.9;background-color:#008080;padding:10px;cursor:pointer;color:white;" (click)=navigate(false)>
+            &lt;
+          </div>
+        <div class="col-md-2"></div>
+          <div class="col-md-4 text-center" style="opacity:0.9;background-color:#008080;padding:10px;cursor:pointer;color:white;" (click)=navigate(true)>
+            &gt;
+          </div>
+        <div class="col-md-1"></div>
+      </div>
+    </div>
+</app-modal>
