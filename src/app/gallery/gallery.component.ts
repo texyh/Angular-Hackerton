@@ -5,6 +5,7 @@ import {Component, Input} from '@angular/core';
   template: `
   <h1 class="page-header text-center" style="color:#008080;">Image Gallery</h1>
   	<div class="row">
+
   		<button class="btn btn-primary pull-btn-right" style="margin-left: 86%;margin-top: 2%;background-color:#008080 !important;">Upload</button>
   	</div>
 	<div class="modal fade" id="selectedImageModal" >
@@ -67,15 +68,5 @@ export class GalleryComponent {
       this.selectedImage = this.datasource[index];	
    }
   }
-	hotkeys(event){
-	   if(this.selectedImage){
-	      if (event.keyCode == 37){
-	         this.navigate(false);
-	      }else if(event.keyCode == 39){
-	         this.navigate(true);
-	      }
-	   }
-	}
-
-
+	
 }
