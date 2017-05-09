@@ -1,9 +1,17 @@
 <!--<h1 class="page-header text-center" style="color:#008080;">Image Gallery</h1>-->
-<ul id="thumbnailsList">
+<!--<ul id="thumbnailsList">
   <li *ngFor="let image of images">
     <img src="{{image.url}}" class="tn" width="191" height="146" (click)="show(image)">
   </li>
-</ul>
+</ul>-->
+
+<div class="row">
+  <div class="col-xs-6 col-md-3" *ngFor="let image of images">
+    <div class="thumbnail">
+      <img src="{{image.url}}" alt="loading" (click)="show(image)">
+    </div>
+  </div>
+</div>
 
 <app-modal [title]="title" [size]='"large"' [closable]="true">
   <div class="row" xmodal-body>
