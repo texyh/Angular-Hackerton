@@ -2,6 +2,8 @@ import { Component, Input, ViewChild, OnInit } from '@angular/core';
 import { ModalComponent } from '../common/widgets/modalComponent/modal.component';
 import { DataService } from '../dataservice/data.service';
 
+import * as _ from 'lodash';
+
 
 @Component({
 	selector: 'app-gallery',
@@ -30,6 +32,19 @@ export class GalleryComponent implements OnInit {
 		this.modal.show();
 	}
 
+	deleteImage(id: string) {
+		this._dataService.deleteImage(id).subscribe(x => {
+			this.removeDeletedImage(id);
+			this.modal.close();
+		})
+	}
+
+	removeDeletedImage(id: string) {
+		_.remove(this.images, x => {
+			return (x._id === id);
+		})
+	}
+
 	navigate(forward) {
 		var index = this.images.indexOf(this.selectedImage) + (forward ? 1 : -1);
 		if (index >= 0 && index < this.images.length) {
@@ -52,6 +67,4 @@ export class GalleryComponent implements OnInit {
 			this.images = x;
 		})
 	}
-
-
 }

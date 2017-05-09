@@ -8,7 +8,8 @@
 <app-modal [title]="title" [size]='"large"' [closable]="true">
   <div class="row" xmodal-body>
     
-      <div class="row"><span class="pull-right glyphicon glyphicon-trash" style="color:red;width:50px;"></span></div>
+      <div class="row"><span class="pull-right glyphicon glyphicon-trash" (click)="deleteImage(selectedImage._id)" style="color:red;width:50px;"></span></div>
+
         <div class="selectedImage" *ngIf="selectedImage">
           <img src="{{selectedImage.url}}" style="width:500px;position:relative;">
         </div>
