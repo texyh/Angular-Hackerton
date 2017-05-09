@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+.overlay {
+    position: fixed;
+    z-index: 1000000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(255, 255, 255, .7);
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s all ease-in-out;
+}
+
+.loader {
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -27px;
+    margin-left: -27px;
+    z-index: 1000001;
+}
+
+.loading.overlay {
+    visibility: visible;
+    opacity: 1;
+}

@@ -1,6 +1,7 @@
 import { Component, Input, ViewChild, OnInit } from '@angular/core';
 import { ModalComponent } from '../common/widgets/modalComponent/modal.component';
 import { DataService } from '../dataservice/data.service';
+import {LoaderService} from '../common/widgets/loader/loader.service';
 
 import * as _ from 'lodash';
 
@@ -19,7 +20,8 @@ export class GalleryComponent implements OnInit {
 	title = 'image name';
 	images:any[];
 
-	constructor(private _dataService: DataService) {}
+	constructor(private _dataService: DataService,
+				private _loaderService: LoaderService) {}
 
 	host: { '(window:keydown)': 'hotkeys($event)' }
 
@@ -33,9 +35,13 @@ export class GalleryComponent implements OnInit {
 	}
 
 	deleteImage(id: string) {
+		this._loaderService.show();
 		this._dataService.deleteImage(id).subscribe(x => {
 			this.removeDeletedImage(id);
+			this._loaderService.hide();
 			this.modal.close();
+		}, err => {
+			this._loaderService.hide();
 		})
 	}
 
@@ -63,8 +69,12 @@ export class GalleryComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		this._loaderService.show();
 		this._dataService.loadImages().subscribe(x => {
 			this.images = x;
+			this._loaderService.hide();
+		}, err => {
+			this._loaderService.hide();
 		})
 	}
 }

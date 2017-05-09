@@ -16,13 +16,16 @@ import { UploadComponent } from './upload/upload.component';
 import { ModalComponent } from './common/widgets/modalComponent/modal.component';
 import { DataService } from './dataservice/data.service';
 import { ModalModule } from 'ngx-bootstrap';
+import {LoaderService} from './common/widgets/loader/loader.service';
+import {LoaderComponent} from './common/widgets/loader/loader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GalleryComponent,
     ModalComponent,
-    UploadComponent
+    UploadComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import { ModalModule } from 'ngx-bootstrap';
   ],
   providers: [
     DataService,
+    LoaderService,
     {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
