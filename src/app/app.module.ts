@@ -13,7 +13,8 @@ import * as Cloudinary from 'cloudinary-core'
 import { AppComponent } from './layout/app.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { UploadComponent } from './upload/upload.component';
-import {ModalComponent} from './common/widgets/modalComponent/modal.component';
+import { ModalComponent } from './common/widgets/modalComponent/modal.component';
+import { DataService } from './dataservice/data.service';
 import { ModalModule } from 'ngx-bootstrap';
 
 @NgModule({
@@ -29,17 +30,16 @@ import { ModalModule } from 'ngx-bootstrap';
     HttpModule,
     ModalModule.forRoot(),
     RouterModule.forRoot([
-            { path: '', redirectTo: 'gallery', pathMatch: 'full' },
-            { path: 'gallery', component: GalleryComponent },
-            { path: 'upload', component: UploadComponent },
-            { path: '**', redirectTo: 'gallery' }
-        ]),
-    CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'cloud_name'})
+      { path: '', redirectTo: 'gallery', pathMatch: 'full' },
+      { path: 'gallery', component: GalleryComponent },
+      { path: 'upload', component: UploadComponent },
+      { path: '**', redirectTo: 'gallery' }
+    ]),
+    CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'cloud_name' })
   ],
   providers: [
-    {
-       provide: LocationStrategy, useClass: HashLocationStrategy
-     }
+    DataService,
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })

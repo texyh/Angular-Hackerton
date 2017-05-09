@@ -1,6 +1,6 @@
 <!--<h1 class="page-header text-center" style="color:#008080;">Image Gallery</h1>-->
 <ul id="thumbnailsList">
-  <li *ngFor="let image of datasource">
+  <li *ngFor="let image of images">
     <img src="{{image.url}}" class="tn" width="191" height="146" (click)="show(image)">
   </li>
 </ul>
