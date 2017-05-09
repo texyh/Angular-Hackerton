@@ -1,10 +1,10 @@
 <div class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
-
     <header class="main-header">
       <!-- Logo -->
+
       <a [routerLink]="['gallery']" class="logo">
-        <span class="logo-lg"><b>Hack</b>-Cli</span>
+        <span class="logo-lg"><b>Hack</b>Cl</span>
       </a>
       <!-- Header Navbar: style can be found in header.less -->
       <nav class="navbar navbar-static-top">
@@ -20,7 +20,8 @@
       <section class="sidebar">
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
-          <li class="header">Hack-Cli</li>
+
+          <li class="header">Hack-Cl</li>
 
           <li>
             <a  [routerLinkActive]="['active']" [routerLink]="['gallery']">
@@ -32,6 +33,12 @@
             <a [routerLinkActive]="['active']" [routerLink]="['upload']">
               <i class="fa fa-th"></i> <span>Upload</span>
             </a>
+          </li>
+          <li>
+            <cl-image public-id="readme" class="thumbnail inline" angle="20" format="jpg">
+              <cl-transformation height="150" width="150" crop="fill" effect="sepia" radius="20"></cl-transformation>
+              <cl-transformation overlay="text:arial_60:readme" gravity="north" y="20"></cl-transformation>
+          </cl-image>
           </li>
         </ul>
 
@@ -60,6 +67,7 @@
 
     <footer class="main-footer text-center">
       
-      <strong>Copyright &copy; 2014-2016 Hack-Cli.</strong> All rights reserved.
+      <strong>Copyright &copy; 2014-2016 Hack-Cl.</strong> All rights reserved.
+
     </footer>
   </div>

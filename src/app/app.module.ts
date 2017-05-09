@@ -6,6 +6,10 @@ import { RouterModule } from '@angular/router';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 
+import { CloudinaryModule } from '@cloudinary/angular';
+import * as Cloudinary from 'cloudinary-core'
+
+
 import { AppComponent } from './layout/app.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { UploadComponent } from './upload/upload.component';
@@ -30,8 +34,13 @@ import { ModalModule } from 'ngx-bootstrap';
             { path: 'upload', component: UploadComponent },
             { path: '**', redirectTo: 'gallery' }
         ]),
+    CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'cloud_name'})
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [
+    {
+       provide: LocationStrategy, useClass: HashLocationStrategy
+     }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
