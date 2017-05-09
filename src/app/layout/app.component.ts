@@ -8,11 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
   title: string;
 
   constructor(private _router: Router) {}
 
-   private getTitle(path): string {
+   private getTitle(path: string): string {
         let value = '';
 
         switch (path) {
