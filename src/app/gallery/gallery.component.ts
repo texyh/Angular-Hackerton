@@ -24,8 +24,6 @@ export class GalleryComponent implements OnInit {
 	constructor(private _dataService: DataService,
 		private _loaderService: LoaderService) { }
 
-	host: { '(window:keydown)': 'hotkeys($event)' }
-
 	setSelectedImage(image) {
 		this.selectedImage = image;
 	}
@@ -58,23 +56,6 @@ export class GalleryComponent implements OnInit {
 		_.remove(this.images, x => {
 			return (x._id === id);
 		})
-	}
-
-	navigate(forward) {
-		var index = this.images.indexOf(this.selectedImage) + (forward ? 1 : -1);
-		if (index >= 0 && index < this.images.length) {
-			this.selectedImage = this.images[index];
-		}
-	}
-
-	hotkeys(event) {
-		if (this.selectedImage) {
-			if (event.keyCode == 37) {
-				this.navigate(false);
-			} else if (event.keyCode == 39) {
-				this.navigate(true);
-			}
-		}
 	}
 
 	ngOnInit() {
