@@ -17,7 +17,7 @@ export class GalleryComponent implements OnInit {
 	private modal: ModalComponent;
 
 	selectedImage: any;
-	title = 'image name';
+	title = 'PreView Image';
 	images: any[];
 	gridView = true;
 
@@ -37,6 +37,10 @@ export class GalleryComponent implements OnInit {
 
 	changeView(option) {
 		this.gridView = option;
+	}
+
+	close() {
+		this.modal.close();
 	}
 
 	deleteImage(id: string) {

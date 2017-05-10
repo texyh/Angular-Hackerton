@@ -38,7 +38,10 @@ import {LoaderComponent} from './common/widgets/loader/loader.component';
       { path: 'upload', component: UploadComponent },
       { path: '**', redirectTo: 'gallery' }
     ]),
-    CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'cloud_name' })
+    CloudinaryModule.forRoot(
+      Cloudinary,
+      { cloud_name: 'nextekk-team'}
+    )
   ],
   providers: [
     DataService,

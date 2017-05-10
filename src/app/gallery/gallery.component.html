@@ -7,18 +7,24 @@
 
 <div class="row">
   <div class="col-md-12">
-  <div class="btn-group pull-right" style="margin-bottom:15px">
-    <button class="btn btn-default" (click)="changeView(true)"><span class="glyphicon glyphicon-th"></span></button>
-    <button class="btn btn-default" (click)="changeView(false)"><span class="glyphicon glyphicon-th-list"></span></button>
-  </div>
+    <div class="btn-group pull-right" style="margin-bottom:15px">
+      <button class="btn btn-default" (click)="changeView(true)"><span class="glyphicon glyphicon-th"></span></button>
+      <button class="btn btn-default" (click)="changeView(false)"><span class="glyphicon glyphicon-th-list"></span></button>
+    </div>
   </div>
 </div>
 
 <div class="row" *ngIf="gridView">
   <div class="col-xs-6 col-md-3" *ngFor="let image of images">
-    <div class="thumbnail">
+    <!--<div class="thumbnail">
       <img src="{{image.url}}" alt="loading" (click)="show(image)">
-    </div>
+    </div>-->
+    <cl-image public-id="{{image.image_id}}" class="thumbnail">
+              <cl-transformation height="300" width="300"></cl-transformation>
+              <cl-transformation effect="shadow"></cl-transformation>
+              <cl-transformation quality="auto"></cl-transformation>
+              
+    </cl-image>
   </div>
 </div>
 
@@ -33,7 +39,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let image of images">
+        <tr *ngFor="let image of images" (click)="show(image)">
           <td>{{image.name}}</td>
           <td>{{image.created_at | date}}</td>
           <td>{{image.url}}</td>
@@ -44,14 +50,14 @@
 </div>
 
 <app-modal [title]="title" [size]='"large"' [closable]="true">
-  <div class="row" xmodal-body style="background-image:'url(selectedImage.url)'">
-
-    <div class="row"><span class="pull-right glyphicon glyphicon-trash" (click)="deleteImage(selectedImage._id)" style="color:red;width:50px;"></span></div>
-
-    <div class="selectedImage" *ngIf="selectedImage">
-      <img src="{{selectedImage.url}}">
+  <div class="row" xmodal-body>
+      <img *ngIf="selectedImage" src="{{selectedImage.url}}">
+  </div>
+  <div xmodal-footer >
+        <button type="button" class="btn btn-danger" (click)="deleteImage(selectedImage._id)">Delete</button>
+        <button type="button" class="btn btn-default" (click)="close()">close</button>
     </div>
-    <div class="row" style="margin-top:2%;">
+  <!--<div class="row" style="margin-top:2%;">
       <div class="col-md-1"></div>
       <div class="col-md-4 text-center" style="opacity:0.9;background-color:#008080;padding:10px;cursor:pointer;color:white;" (click)=navigate(false)>
         &lt;
@@ -62,5 +68,5 @@
       </div>
       <div class="col-md-1"></div>
     </div>
-  </div>
+  </div>-->
 </app-modal>
