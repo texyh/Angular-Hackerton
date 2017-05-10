@@ -29,6 +29,7 @@ export class GalleryComponent implements OnInit {
 	}
 
 	show(image: any) {
+		this.selectedImage = null;
 		this.selectedImage = image;
 		this.modal.show();
 	}
