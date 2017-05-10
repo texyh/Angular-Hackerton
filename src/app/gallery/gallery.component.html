@@ -44,7 +44,7 @@
 
 <app-modal [title]="title" [size]='"large"' [closable]="true">
   <div class="row"  xmodal-body>
-    <cl-image *ngIf="selectedImage" public-id="{{selectedImage.image_id}}" fetch_format="jpg" quality="60" style="height:100%;width:100%;" >
+    <cl-image *ngIf="selectedImage" public-id="{{selectedImage.image_id}}" fetch_format="jpg" quality="10" width="100%" height="100%" >
     </cl-image>
   </div>
   <div xmodal-footer>
