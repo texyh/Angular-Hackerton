@@ -6,6 +6,13 @@
 </ul>-->
 
 <div class="row">
+  <div class="btn-group col-md-12 pull-right" style="margin-bottom:15px">
+    <button class="btn btn-default" (click)="changeView(true)"><span class="glyphicon glyphicon-th"></span></button>
+    <button class="btn btn-default" (click)="changeView(false)"><span class="glyphicon glyphicon-th-list"></span></button>
+  </div>
+</div>
+
+<div class="row" *ngIf="gridView">
   <div class="col-xs-6 col-md-3" *ngFor="let image of images">
     <div class="thumbnail">
       <img src="{{image.url}}" alt="loading" (click)="show(image)">
@@ -13,24 +20,45 @@
   </div>
 </div>
 
-<app-modal [title]="title" [size]='"large"' [closable]="true">
-  <div class="row" xmodal-body>
-    
-      <div class="row"><span class="pull-right glyphicon glyphicon-trash" (click)="deleteImage(selectedImage._id)" style="color:red;width:50px;"></span></div>
+<div class="row" *ngIf="!gridView">
+  <div class="col-md-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Image Name</th>
+          <th>Created</th>
+          <th> Cloud Url</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let image of images">
+          <td>{{image.name}}</td>
+          <td>{{image.created_at | date}}</td>
+          <td>{{image.url}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-        <div class="selectedImage" *ngIf="selectedImage">
-          <img src="{{selectedImage.url}}" style="width:500px;position:relative;">
-        </div>
-      <div class="row" style="margin-top:2%;">
-        <div class="col-md-1"></div>
-          <div class="col-md-4 text-center" style="opacity:0.9;background-color:#008080;padding:10px;cursor:pointer;color:white;" (click)=navigate(false)>
-            &lt;
-          </div>
-        <div class="col-md-2"></div>
-          <div class="col-md-4 text-center" style="opacity:0.9;background-color:#008080;padding:10px;cursor:pointer;color:white;" (click)=navigate(true)>
-            &gt;
-          </div>
-        <div class="col-md-1"></div>
-      </div>
+<app-modal [title]="title" [size]='"large"' [closable]="true">
+  <div class="row" xmodal-body style="background-image:'url(selectedImage.url)'">
+
+    <div class="row"><span class="pull-right glyphicon glyphicon-trash" (click)="deleteImage(selectedImage._id)" style="color:red;width:50px;"></span></div>
+
+    <div class="selectedImage" *ngIf="selectedImage">
+      <img src="{{selectedImage.url}}">
     </div>
+    <div class="row" style="margin-top:2%;">
+      <div class="col-md-1"></div>
+      <div class="col-md-4 text-center" style="opacity:0.9;background-color:#008080;padding:10px;cursor:pointer;color:white;" (click)=navigate(false)>
+        &lt;
+      </div>
+      <div class="col-md-2"></div>
+      <div class="col-md-4 text-center" style="opacity:0.9;background-color:#008080;padding:10px;cursor:pointer;color:white;" (click)=navigate(true)>
+        &gt;
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
 </app-modal>

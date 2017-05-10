@@ -1,7 +1,7 @@
 import { Component, Input, ViewChild, OnInit } from '@angular/core';
 import { ModalComponent } from '../common/widgets/modalComponent/modal.component';
 import { DataService } from '../dataservice/data.service';
-import {LoaderService} from '../common/widgets/loader/loader.service';
+import { LoaderService } from '../common/widgets/loader/loader.service';
 
 import * as _ from 'lodash';
 
@@ -18,10 +18,11 @@ export class GalleryComponent implements OnInit {
 
 	selectedImage: any;
 	title = 'image name';
-	images:any[];
+	images: any[];
+	gridView = true;
 
 	constructor(private _dataService: DataService,
-				private _loaderService: LoaderService) {}
+		private _loaderService: LoaderService) { }
 
 	host: { '(window:keydown)': 'hotkeys($event)' }
 
@@ -32,6 +33,10 @@ export class GalleryComponent implements OnInit {
 	show(image: any) {
 		this.selectedImage = image;
 		this.modal.show();
+	}
+
+	changeView(option) {
+		this.gridView = option;
 	}
 
 	deleteImage(id: string) {
