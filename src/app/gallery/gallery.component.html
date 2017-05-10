@@ -1,4 +1,3 @@
-
 <div class="row">
   <div class="col-md-12">
     <div class="btn-group pull-right" style="margin-bottom:15px">
@@ -14,8 +13,8 @@
       <img src="{{image.url}}" alt="loading" (click)="show(image)">
     </div>-->
     <cl-image public-id="{{image.image_id}}" class="thumbnail" (click)="show(image)" fetch_format="auto" quality="auto">
-              <cl-transformation height="300" width="300"></cl-transformation>
-              <cl-transformation effect="shadow"></cl-transformation>              
+      <cl-transformation height="300" width="300"></cl-transformation>
+      <cl-transformation effect="shadow"></cl-transformation>
     </cl-image>
   </div>
 </div>
@@ -25,6 +24,7 @@
     <table class="table table-striped">
       <thead>
         <tr>
+          <th>Image</th>
           <th>Image Name</th>
           <th>Created</th>
           <th> Cloud Url</th>
@@ -32,6 +32,10 @@
       </thead>
       <tbody>
         <tr *ngFor="let image of images" (click)="show(image)">
+          <td>
+            <cl-image public-id="{{image.image_id}}" fetch_format="auto" quality="auto" height="50" width="100">
+            </cl-image>
+          </td>
           <td>{{image.name}}</td>
           <td>{{image.created_at | date}}</td>
           <td>{{image.url}}</td>
@@ -43,13 +47,13 @@
 
 <app-modal [title]="title" [size]='"large"' [closable]="true">
   <div class="row" xmodal-body>
-      <cl-image *ngIf="selectedImage" public-id="{{selectedImage.image_id}}" fetch_format="auto" quality="auto">
-              <cl-transformation height="300" width="900"></cl-transformation>              
+    <cl-image *ngIf="selectedImage" public-id="{{selectedImage.image_id}}" fetch_format="auto" quality="auto">
+      <cl-transformation height="300" width="900"></cl-transformation>
     </cl-image>
   </div>
-  <div xmodal-footer >
-        <button type="button" class="btn btn-danger" (click)="deleteImage(selectedImage._id)">Delete</button>
-        <button type="button" class="btn btn-default" (click)="close()">close</button>
-    </div>
+  <div xmodal-footer>
+    <button type="button" class="btn btn-danger" (click)="deleteImage(selectedImage._id)">Delete</button>
+    <button type="button" class="btn btn-default" (click)="close()">close</button>
+  </div>
 
 </app-modal>
