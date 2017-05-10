@@ -29,7 +29,6 @@ export class GalleryComponent implements OnInit {
 	}
 
 	show(image: any) {
-		this.selectedImage = null;
 		this.selectedImage = image;
 		this.modal.show();
 	}
@@ -40,6 +39,7 @@ export class GalleryComponent implements OnInit {
 
 	close() {
 		this.modal.close();
+		this.selectedImage = null;
 	}
 
 	deleteImage(id: string) {
