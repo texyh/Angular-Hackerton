@@ -48,6 +48,7 @@ export class GalleryComponent implements OnInit {
 			this.removeDeletedImage(id);
 			this._loaderService.hide();
 			this.modal.close();
+			this.selectedImage = null;
 		}, err => {
 			this._loaderService.hide();
 		})
