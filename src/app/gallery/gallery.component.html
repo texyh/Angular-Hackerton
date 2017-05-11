@@ -9,7 +9,7 @@
 
 <div class="row" *ngIf="gridView">
   <div class="col-xs-6 col-md-3" *ngFor="let image of images">
-    <cl-image public-id="{{image.image_id}}" class="thumbnail" (click)="show(image)" fetch_format="auto" quality="auto" height="300" width="300" crop="fill">
+    <cl-image public-id="{{image.image_id}}" class="img-thumbnail" (click)="show(image)" fetch_format="auto" quality="auto" height="300" width="300" crop="fill">
       <cl-transformation effect="shadow"></cl-transformation>
     </cl-image>
   </div>
